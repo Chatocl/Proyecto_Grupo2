@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Proyecto_Grupo2
 {
-    public class BaseEstructura<T> where T: IComparable<T>
+    public abstract class BaseEstructura<T> where T: IComparable<T>
     {
         protected abstract Nodo<T> Insert(Nodo<T> nodo, T value);
         protected abstract void Delete(Nodo<T> nodo);
