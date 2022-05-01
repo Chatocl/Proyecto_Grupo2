@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Proyecto_Grupo2.Models.Datos;
 
-namespace Proyecto_Grupo2.Models
+namespace Proyecto_Grupo2.Models.Datos
 {
     public class Singleton
     {
@@ -16,7 +17,8 @@ namespace Proyecto_Grupo2.Models
                 return _instance;
             }
         }
-        int bandera;
-        public List<Paciente> aux = new List<Paciente>();
+        public int bandera;
+        public List<Paciente> Aux = new List<Paciente>();
+        public Arbol_AVL<Paciente> miAVL = new Arbol_AVL<Paciente>();
     }
 }

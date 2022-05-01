@@ -14,13 +14,13 @@ namespace Proyecto_Grupo2.Models
 
         [Display (Name ="Número de DPI o Partida de nacimiento")]
         [Required (ErrorMessage ="El campo {0} es requerido.")]
-        public int ID { get; set; }
+        public string ID { get; set; }
         [Display (Name ="Edad del paciente")]
         [Required(ErrorMessage ="El campo {0} es requerido.")]
-        public int Edad { get; set; }
+        public string Edad { get; set; }
         [Display (Name ="Número de telefono")]
         [Required(ErrorMessage ="El campo {0} es requerido.")]
-        public int Telefono { get; set; }
+        public string Telefono { get; set; }
         [Display(Name ="Fecha de su última consulta")]
         [DataType(DataType.Date)]
         [Required(ErrorMessage ="El campo {0} es requerido.")]
