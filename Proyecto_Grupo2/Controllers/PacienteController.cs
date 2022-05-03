@@ -14,15 +14,15 @@ using System.IO;
 
 namespace Proyecto_Grupo2.Controllers
 {
-    public class AVLController : Controller
+    public class PacienteController : Controller
     {
         private IHostingEnvironment Environment;
         // GET: AVLController
-        public AVLController(IHostingEnvironment _everioment)
+        public PacienteController(IHostingEnvironment _everioment)
         {
             Environment = _everioment;
         }
-        public ActionResult Index()
+        public ActionResult Index_Paciente()
         {
             if (Singleton.Instance.bandera == 1)
             {
@@ -41,7 +41,7 @@ namespace Proyecto_Grupo2.Controllers
         }
 
         // GET: AVLController/Create
-        public ActionResult Create()
+        public ActionResult Create_Paciente()
         {
 
             return View();
@@ -50,7 +50,7 @@ namespace Proyecto_Grupo2.Controllers
         // POST: AVLController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public ActionResult Create_Paciente(IFormCollection collection)
         {
             try
             {
@@ -61,15 +61,13 @@ namespace Proyecto_Grupo2.Controllers
                     DPI = collection["dpi"],
                     Edad = collection["edad"],
                     Telefono = collection["telefono"],
-
-                    //Corregir para los siguientes datos 
-                    //FDUltimaConsulta=collection["fdultimaconsulta"],
-                    //FDProximaConsulta = collection["fdproximaconsulta"],
-                    Descipion = collection["descripcion"]
+                    FDU=Convert.ToDateTime(collection["fdu"]),
+                    FDP = Convert.ToDateTime(collection["fdp"]),
+                    Descripcion = collection["descripcion"]
                 };
                 Singleton.Instance.miAVL.Add(NewPaciente);
                 Singleton.Instance.bandera = 0;
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(Index_Paciente));
             }
             catch
             {
@@ -90,7 +88,7 @@ namespace Proyecto_Grupo2.Controllers
         {
             try
             {
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(Index_Paciente));
             }
             catch
             {
@@ -111,7 +109,7 @@ namespace Proyecto_Grupo2.Controllers
         {
             try
             {
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(Index_Paciente));
             }
             catch
             {

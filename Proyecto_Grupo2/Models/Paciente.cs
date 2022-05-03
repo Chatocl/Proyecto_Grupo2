@@ -26,12 +26,12 @@ namespace Proyecto_Grupo2.Models
         [Display(Name ="Fecha de su última consulta")]
         [DataType(DataType.Date)]
         [Required(ErrorMessage ="El campo {0} es requerido.")]
-        public DateTime? FDUltimaConsulta { get; set; }
+        public DateTime? FDU { get; set; }
         [Display(Name ="Fecha de su próxima consulta(opcional)")]
         [DataType(DataType.Date)]
-        public DateTime? FDProximaConsulta { get; set; }
+        public DateTime? FDP { get; set; }
         [Display(Name ="Descripción del ultimo diagnostico o tratamiento que posee(opcional)")]
-        public string Descipion { get; set; }
+        public string Descripcion { get; set; }
 
         public int CompareTo(Paciente otro)
         {
