@@ -8,8 +8,8 @@
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.5" />
   </ItemGroup>
 
-	<ItemGroup>
-		<ProjectReference Include="..\Clases\Clases.csproj" />
-	</ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Clase\Clase.csproj" />
+  </ItemGroup>
 
 </Project>

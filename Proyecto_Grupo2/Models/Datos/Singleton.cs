@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Clase;
 using Proyecto_Grupo2.Models;
 
 namespace Proyecto_Grupo2.Models.Datos
@@ -17,9 +18,11 @@ namespace Proyecto_Grupo2.Models.Datos
                 return _instance;
             }
         }
+
+      
         public int bandera;
         public List<Paciente> Aux = new List<Paciente>();
-       public Clases.Arbol_AVL<Paciente> miAVL = new Clases.Arbol_AVL<Paciente>();
-       
+        public Clase.Arbol_AVL<Paciente> miAVL = new Clase.Arbol_AVL<Paciente>();
+
     }
 }
