@@ -87,6 +87,18 @@ namespace Clase
                 return Derecha(nodo.Derecho);
             }
         }
+
+        public T Find(T Item)
+        {
+            Nodo<T> busc = new Nodo<T>();
+            busc = Get(Raiz, Item);
+            if (busc != null)
+            {
+                return busc.Valor;
+            }
+
+            return default;
+        }
         protected override Nodo<T> Get(Nodo<T> nodo, T value)
         {
             if (value.CompareTo(nodo.Valor) == 0)
