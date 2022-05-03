@@ -35,15 +35,15 @@ namespace Proyecto_Grupo2.Controllers
             }
         }
         // GET: AVLController/Details/5
-        public ActionResult Details(int id)
+        public ActionResult Details_Paciente(Paciente id)
         {
-            return View();
+            Paciente viewPaciente = Singleton.Instance.miAVL.Find(id);
+            return View(viewPaciente);
         }
 
         // GET: AVLController/Create
         public ActionResult Create_Paciente()
         {
-
             return View();
         }
 
@@ -54,6 +54,7 @@ namespace Proyecto_Grupo2.Controllers
         {
             try
             {
+                string aux="";
                 var NewPaciente = new Models.Paciente
                 {
 
@@ -61,10 +62,18 @@ namespace Proyecto_Grupo2.Controllers
                     DPI = collection["dpi"],
                     Edad = collection["edad"],
                     Telefono = collection["telefono"],
-                    FDU=Convert.ToDateTime(collection["fdu"]),
-                    FDP = Convert.ToDateTime(collection["fdp"]),
+                    FDU =Convert.ToDateTime(collection["FDU"]),
                     Descripcion = collection["descripcion"]
                 };
+                aux = collection["FDP"];
+                if (aux!="")
+                {
+                    NewPaciente.FDP = Convert.ToDateTime(collection["FDP"]);
+                }
+                else
+                {
+                    NewPaciente.FDP = null;
+                }
                 Singleton.Instance.miAVL.Add(NewPaciente);
                 Singleton.Instance.bandera = 0;
                 return RedirectToAction(nameof(Index_Paciente));
@@ -76,15 +85,16 @@ namespace Proyecto_Grupo2.Controllers
         }
 
         // GET: AVLController/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult Edit_Paciente(Paciente item)
         {
-            return View();
+            Paciente viewPaciente = Singleton.Instance.miAVL.Find(item);
+            return View(viewPaciente);
         }
 
         // POST: AVLController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public ActionResult Edit_Paciente(int id, IFormCollection collection)
         {
             try
             {
@@ -97,15 +107,16 @@ namespace Proyecto_Grupo2.Controllers
         }
 
         // GET: AVLController/Delete/5
-        public ActionResult Delete(int id)
+        public ActionResult Delete_Paciente(Paciente id)
         {
-            return View();
+            Paciente viewPaciente = Singleton.Instance.miAVL.Find(id);
+            return View(viewPaciente);
         }
 
         // POST: AVLController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
+        public ActionResult Delete_Paciente(int id, IFormCollection collection)
         {
             try
             {
@@ -113,6 +124,39 @@ namespace Proyecto_Grupo2.Controllers
             }
             catch
             {
+                return View();
+            }
+        }
+
+        public ActionResult Busqueda_Paciente(string Busqueda)
+        {
+            try
+            {
+                if (Busqueda != null)
+                {
+                    Paciente viewVehiculo = Singleton.Instance.miAVL.ObtenerLista().FirstOrDefault(a => a.Nombre == Busqueda);
+                    if (viewVehiculo == null)
+                    {
+                         viewVehiculo = Singleton.Instance.miAVL.ObtenerLista().FirstOrDefault(a => a.DPI == Busqueda);
+                        if (viewVehiculo == null)
+                        {
+                            TempData["Bus"] = "No se encontro el Paciente";
+                        }
+                        else
+                        {
+                            return View(viewVehiculo);
+                        }
+                    }
+                    else
+                    {
+                        return View(viewVehiculo);
+                    }
+                }
+                return View();
+            }
+            catch
+            {
+                TempData["Bus"] = "No se encontro el Paciente";
                 return View();
             }
         }

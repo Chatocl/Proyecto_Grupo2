@@ -96,7 +96,6 @@ namespace Clase
             {
                 return busc.Valor;
             }
-
             return default;
         }
         protected override Nodo<T> Get(Nodo<T> nodo, T value)

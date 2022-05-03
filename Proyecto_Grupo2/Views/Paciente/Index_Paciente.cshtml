@@ -4,33 +4,33 @@
     ViewData["Title"] = "Index_Paciente";
 }
 
-<h1>Index_Paciente</h1>
+<h1>Index Pacientes</h1>
 
 <p>
-    <a asp-action="Create_Paciente">Create New</a>
+    <a asp-action="Create_Paciente">Ingresar Paciente</a>
 </p>
 <table class="table">
-    <thead>
+    <thead style="background-color: #293241 ">
         <tr>
-            <th>
+            <th style="color:aliceblue">
                 @Html.DisplayNameFor(model => model.Nombre)
             </th>
-            <th>
+            <th style="color:aliceblue">
                 @Html.DisplayNameFor(model => model.DPI)
             </th>
-            <th>
+            <th style="color:aliceblue">
                 @Html.DisplayNameFor(model => model.Edad)
             </th>
-            <th>
+            <th style="color:aliceblue">
                 @Html.DisplayNameFor(model => model.Telefono)
             </th>
-            <th>
+            <th style="color:aliceblue">
                 @Html.DisplayNameFor(model => model.FDU)
             </th>
-            <th>
+            <th style="color:aliceblue">
                 @Html.DisplayNameFor(model => model.FDP)
             </th>
-            <th>
+            <th style="color:aliceblue"> 
                 @Html.DisplayNameFor(model => model.Descripcion)
             </th>
             <th></th>
@@ -61,9 +61,9 @@
                 @Html.DisplayFor(modelItem => item.Descripcion)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                @Html.ActionLink("Editar", "Edit_Paciente", item ) |
+                @Html.ActionLink("Detalles", "Details_Paciente",item) |
+                @Html.ActionLink("Eliminar", "Delete_Paciente",item)
             </td>
         </tr>
 }

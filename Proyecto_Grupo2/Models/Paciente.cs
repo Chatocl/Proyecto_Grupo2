@@ -31,10 +31,11 @@ namespace Proyecto_Grupo2.Models
         [DataType(DataType.Date)]
         [Required(ErrorMessage ="El campo {0} es requerido.")]
         public DateTime? FDU { get; set; }
-        [Display(Name ="Fecha de su próxima consulta(opcional)")]
+
+        [Display(Name ="Fecha de su próxima consulta (opcional)")]
         [DataType(DataType.Date)]
         public DateTime? FDP { get; set; }
-        [Display(Name ="Descripción del ultimo diagnostico o tratamiento que posee(opcional)")]
+        [Display(Name ="Descripción del ultimo diagnostico o tratamiento que posee (opcional)")]
         public string Descripcion { get; set; }
 
         public int CompareTo(Paciente otro)
@@ -48,7 +49,6 @@ namespace Proyecto_Grupo2.Models
                 return this.Nombre.CompareTo(otro.Nombre);
             }
         }
-
 
     }
 }

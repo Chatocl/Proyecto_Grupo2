@@ -1,0 +1,73 @@
+﻿@model Proyecto_Grupo2.Models.Paciente
+
+@{
+    ViewData["Title"] = "Busqueda_Paciente";
+}
+
+<h1>Busqueda Paciente</h1>
+
+<div class="form-inline">
+    <form asp-action="Busqueda_Paciente" method="post">
+        <input name="Busqueda" type="search" class="form-control me-2" placeholder="Ingrese Nombre o DPI" />
+        <button type="submit" class="btn btn-outline-success">Buscar</button>
+    </form>
+</div>
+
+<div>
+    <h4>Paciente</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Nombre)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Nombre)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.DPI)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DPI)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Edad)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Edad)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Telefono)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Telefono)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.FDU)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.FDU)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.FDP)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.FDP)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Descripcion)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Descripcion)
+        </dd>
+    </dl>
+</div>
+<div>
+    @Html.ActionLink("Editar", "Edit", Model ) |
+    <a asp-action="Index_Paciente">Back to List</a>
+</div>
+@if (null != TempData["Bus"])
+{
+    <script type="text/javascript">
+       alert('@TempData["Bus"]');
+    </script>
+}

@@ -1,0 +1,60 @@
+﻿@model Proyecto_Grupo2.Models.Paciente
+
+@{
+    ViewData["Title"] = "Details_Paciente";
+}
+
+<h1>Details_Paciente</h1>
+
+<div>
+    <h4>Paciente</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Nombre)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Nombre)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.DPI)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DPI)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Edad)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Edad)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Telefono)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Telefono)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.FDU)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.FDU)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.FDP)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.FDP)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Descripcion)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Descripcion)
+        </dd>
+    </dl>
+</div>
+<div>
+    @Html.ActionLink("Edit", "Edit_Paciente",Model) |
+    <a asp-action="Index_Paciente">Back to List</a>
+</div>
