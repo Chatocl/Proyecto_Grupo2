@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
+using Proyecto_Grupo2.Models.Datos;
+
 
 namespace Proyecto_Grupo2.Models
 {
@@ -14,7 +16,7 @@ namespace Proyecto_Grupo2.Models
 
         [Display (Name ="Número de DPI o Partida de nacimiento")]
         [Required (ErrorMessage ="El campo {0} es requerido.")]
-        public string ID { get; set; }
+        public string DPI { get; set; }
         [Display (Name ="Edad del paciente")]
         [Required(ErrorMessage ="El campo {0} es requerido.")]
         public string Edad { get; set; }

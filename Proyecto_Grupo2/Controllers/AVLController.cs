@@ -7,7 +7,6 @@ using System.Threading.Tasks;
 using Proyecto_Grupo2.Models.Datos;
 using Microsoft.AspNetCore.Hosting;
 using System.Diagnostics;
-using System.Linq;
 using Proyecto_Grupo2.Models;
 using System.IO;
 
@@ -59,7 +58,7 @@ namespace Proyecto_Grupo2.Controllers
                 {
 
                     Nombre = collection["nombre"],
-                    ID = collection["id"],
+                    DPI = collection["dpi"],
                     Edad = collection["edad"],
                     Telefono = collection["telefono"],
 

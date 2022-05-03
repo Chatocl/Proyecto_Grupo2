@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Proyecto_Grupo2
+namespace Clases
 {
     public abstract class BaseEstructura<T> where T: IComparable<T>
     {
