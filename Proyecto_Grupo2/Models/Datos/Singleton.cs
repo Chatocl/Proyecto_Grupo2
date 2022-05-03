@@ -19,7 +19,7 @@ namespace Proyecto_Grupo2.Models.Datos
         }
         public int bandera;
         public List<Paciente> Aux = new List<Paciente>();
-      //  public Clases.Arbol_AVL<Paciente> miAVL = new Clases.Arbol_AVL<Paciente>();
+       public Clases.Arbol_AVL<Paciente> miAVL = new Clases.Arbol_AVL<Paciente>();
        
     }
 }

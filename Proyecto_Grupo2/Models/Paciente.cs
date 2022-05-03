@@ -8,7 +8,7 @@ using Proyecto_Grupo2.Models.Datos;
 
 namespace Proyecto_Grupo2.Models
 {
-    public class Paciente
+    public class Paciente : IComparable<Paciente>
     {
         [Display(Name = "Nombre completo del paciente")]
         [Required(ErrorMessage = "El campo {0} es requerido.")]
@@ -32,5 +32,18 @@ namespace Proyecto_Grupo2.Models
         public DateTime? FDProximaConsulta { get; set; }
         [Display(Name ="Descripción del ultimo diagnostico o tratamiento que posee(opcional)")]
         public string Descipion { get; set; }
+
+        public int CompareTo(Paciente otro)
+        {
+            if (otro == null)
+            {
+                return 0;
+            }
+            else
+            {
+                return this.Nombre.CompareTo(otro.Nombre);
+            }
+        }
+
     }
 }
