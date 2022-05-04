@@ -88,16 +88,34 @@ namespace Proyecto_Grupo2.Controllers
         public ActionResult Edit_Paciente(Paciente item)
         {
             Paciente viewPaciente = Singleton.Instance.miAVL.Find(item);
+            Singleton.Instance.AuxP = viewPaciente;
             return View(viewPaciente);
         }
 
         // POST: AVLController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit_Paciente(int id, IFormCollection collection)
+        public ActionResult Edit_Paciente(Paciente id, IFormCollection collection)
         {
             try
             {
+                string aux = "";
+                Singleton.Instance.miAVL.Find(Singleton.Instance.AuxP).Nombre = collection["nombre"];
+                Singleton.Instance.miAVL.Find(Singleton.Instance.AuxP).DPI = collection["dpi"];
+                Singleton.Instance.miAVL.Find(Singleton.Instance.AuxP).Edad = collection["edad"];
+                Singleton.Instance.miAVL.Find(Singleton.Instance.AuxP).Telefono = collection["telefono"];
+                Singleton.Instance.miAVL.Find(Singleton.Instance.AuxP).FDU = Convert.ToDateTime(collection["FDU"]);
+                Singleton.Instance.miAVL.Find(Singleton.Instance.AuxP).Descripcion = collection["descripcion"];
+               
+                aux = collection["FDP"];
+                if (aux != "")
+                {
+                    Singleton.Instance.miAVL.Find(Singleton.Instance.AuxP).FDP = Convert.ToDateTime(collection["FDP"]);
+                }
+                else
+                {
+                    Singleton.Instance.miAVL.Find(Singleton.Instance.AuxP).FDP = null;
+                }
                 return RedirectToAction(nameof(Index_Paciente));
             }
             catch
@@ -110,16 +128,18 @@ namespace Proyecto_Grupo2.Controllers
         public ActionResult Delete_Paciente(Paciente id)
         {
             Paciente viewPaciente = Singleton.Instance.miAVL.Find(id);
+            Singleton.Instance.AuxP = viewPaciente;
             return View(viewPaciente);
         }
 
         // POST: AVLController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete_Paciente(int id, IFormCollection collection)
+        public ActionResult Delete_Paciente(Paciente id, IFormCollection collection)
         {
             try
             {
+                Singleton.Instance.miAVL.Remove(Singleton.Instance.AuxP);
                 return RedirectToAction(nameof(Index_Paciente));
             }
             catch
