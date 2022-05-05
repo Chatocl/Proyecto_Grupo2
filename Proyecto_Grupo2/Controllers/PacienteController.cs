@@ -62,7 +62,7 @@ namespace Proyecto_Grupo2.Controllers
                     DPI = collection["dpi"],
                     Edad = collection["edad"],
                     Telefono = collection["telefono"],
-                  //  FDU = Convert.ToDateTime(collection["FDU"]),
+                    FDU = Convert.ToDateTime(collection["FDU"]),
                     Descripcion = collection["descripcion"]
                 };
                 aux = collection["FDP"];
