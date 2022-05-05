@@ -64,6 +64,7 @@ namespace Proyecto_Grupo2.Controllers
                     Edad = collection["edad"],
                     FDU = Convert.ToDateTime(collection["FDU"]),
                     Telefono = collection["telefono"],
+                    FDU = Convert.ToDateTime(collection["FDU"]),
                     Descripcion = collection["descripcion"]
                 };
                 aux = collection["FDP"];
