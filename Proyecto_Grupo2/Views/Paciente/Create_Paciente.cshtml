@@ -62,20 +62,10 @@
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
-@*@if (null != TempData["Fec"])
+@if (null != TempData["Fec"])
 {
     <script type="text/javascript">
        alert('@TempData["Fec"]');
     </script>
-}*@
+}
 
-@*<script type="text/javascript">
-     function checkDate(sender, args) {
-            if (sender._selectedDate < new Date()) {
-//                alert("¡Usted no puede seleccionar este día!");
-//                sender._selectedDate = new Date();
-//                // set the date back to the current date
-//                sender._textbox.set_Value("")
-            }
-        }
-</script>*@
