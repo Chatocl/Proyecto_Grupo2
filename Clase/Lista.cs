@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Linq;
+using System.Threading.Tasks;
+
 
 namespace Clase
 {
@@ -41,8 +44,8 @@ namespace Clase
 
             if (Head == null)
             {
-                dia++;
-                newNodo.numAtencion = dia;
+                
+                newNodo.numAtencion++;
                 Head = newNodo;
                 return;
             }
@@ -50,9 +53,21 @@ namespace Clase
             {
                 while (aux.Next != null)
                 {
+
+                    if(aux.FechaDA == fecha)
+                    {
+                        if(aux.numAtencion==8)
+                        {
+                            return ;
+                        }
+                        else
+                        {
+                            aux.numAtencion++;
+                        }
+                    }
                     aux = aux.Next;
                 }
-                dia++;
+                
                 newNodo.numAtencion = dia;
                 aux.Next = newNodo;
                 return;
@@ -74,8 +89,14 @@ namespace Clase
             {
                 if (dateTime == aux.FechaDA)
                 {
-
-                    return aux.numAtencion;
+                    if(aux.numAtencion<8)
+                    {
+                        return aux.numAtencion;
+                    }
+                    else
+                    {
+                        return -1;
+                    }
                     //break;
                 }
                 else
@@ -85,7 +106,7 @@ namespace Clase
                    
                 }
             }
-            return 0 ;
+            return -1 ;
         }
 
 

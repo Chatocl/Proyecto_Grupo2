@@ -71,12 +71,17 @@ namespace Proyecto_Grupo2.Controllers
                     Telefono = collection["telefono"],
                     Descripcion = collection["descripcion"]
                 };
+
+                
                 aux = collection["FDP"];
                 if (aux!="")
                 {
                    
                     if (Convert.ToDateTime(collection["FDP"]) > Convert.ToDateTime(DateTime.Today)&& Convert.ToDateTime(collection["FDP"]) > Convert.ToDateTime(collection["FDU"]))
                     {
+                            
+                       // int a = (Add de la lista) La misma lista hace la validación de los 8 días
+
                         NewPaciente.FDP = Convert.ToDateTime(collection["FDP"]);
                     }
                     else
