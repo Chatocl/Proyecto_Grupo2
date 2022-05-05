@@ -14,8 +14,12 @@ using System.IO;
 
 namespace Proyecto_Grupo2.Controllers
 {
+        
     public class PacienteController : Controller
     {
+        //Constructor
+
+          
         private IHostingEnvironment Environment;
         // GET: AVLController
         public PacienteController(IHostingEnvironment _everioment)
@@ -52,6 +56,7 @@ namespace Proyecto_Grupo2.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create_Paciente(IFormCollection collection)
         {
+             
             Paciente AuxPac = new Paciente();
             try
             {
@@ -64,14 +69,13 @@ namespace Proyecto_Grupo2.Controllers
                     Edad = collection["edad"],
                     FDU = Convert.ToDateTime(collection["FDU"]),
                     Telefono = collection["telefono"],
-                    FDU = Convert.ToDateTime(collection["FDU"]),
                     Descripcion = collection["descripcion"]
                 };
                 aux = collection["FDP"];
                 if (aux!="")
                 {
                    
-                    if (Convert.ToDateTime(collection["FDP"]) > Convert.ToDateTime(DateTime.Today))
+                    if (Convert.ToDateTime(collection["FDP"]) > Convert.ToDateTime(DateTime.Today)&& Convert.ToDateTime(collection["FDP"]) > Convert.ToDateTime(collection["FDU"]))
                     {
                         NewPaciente.FDP = Convert.ToDateTime(collection["FDP"]);
                     }
