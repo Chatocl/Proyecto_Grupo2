@@ -62,7 +62,7 @@ namespace Proyecto_Grupo2.Controllers
                     DPI = collection["dpi"],
                     Edad = collection["edad"],
                     Telefono = collection["telefono"],
-                    FDU =Convert.ToDateTime(collection["FDU"]),
+                  //  FDU = Convert.ToDateTime(collection["FDU"]),
                     Descripcion = collection["descripcion"]
                 };
                 aux = collection["FDP"];
@@ -74,6 +74,12 @@ namespace Proyecto_Grupo2.Controllers
                 {
                     NewPaciente.FDP = null;
                 }
+
+                //if(Convert.ToDateTime(collection["FDU"]) > Convert.ToDateTime(DateTime.Today))
+                //{
+                //    NewPaciente.FDU = Convert.ToDateTime(collection["FDU"]);
+                //}
+
                 Singleton.Instance.miAVL.Add(NewPaciente);
                 Singleton.Instance.bandera = 0;
                 return RedirectToAction(nameof(Index_Paciente));
@@ -107,7 +113,7 @@ namespace Proyecto_Grupo2.Controllers
                 Singleton.Instance.miAVL.Find(Singleton.Instance.AuxP).FDU = Convert.ToDateTime(collection["FDU"]);
                 Singleton.Instance.miAVL.Find(Singleton.Instance.AuxP).Descripcion = collection["descripcion"];
                
-                aux = collection["FDP"];
+                aux = Convert.ToString(Convert.ToDateTime(collection["FDP"]));
                 if (aux != "")
                 {
                     Singleton.Instance.miAVL.Find(Singleton.Instance.AuxP).FDP = Convert.ToDateTime(collection["FDP"]);

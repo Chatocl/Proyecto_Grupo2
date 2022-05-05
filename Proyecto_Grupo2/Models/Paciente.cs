@@ -14,22 +14,24 @@ namespace Proyecto_Grupo2.Models
         [Required(ErrorMessage = "El campo {0} es requerido.")]
         public string Nombre { get; set; }
 
-        [Display (Name ="Número de DPI o Partida de nacimiento")]
-        [Required (ErrorMessage ="El campo {0} es requerido.")]
+        [Display(Name = "Número de DPI o Partida de nacimiento")]
+        [Required(ErrorMessage = "El campo {0} es requerido.")]
         [StringLength(13, MinimumLength = 13, ErrorMessage = "Tamaño incorrecto del DPI")]
         public string DPI { get; set; }
 
-        [Display (Name ="Edad del paciente")]
-        [Required(ErrorMessage ="El campo {0} es requerido.")]
+        [Display(Name = "Edad del paciente")]
+        [Required(ErrorMessage = "El campo {0} es requerido.")]
         public string Edad { get; set; }
 
-        [Display (Name ="Número de telefono")]
-        [Required(ErrorMessage ="El campo {0} es requerido.")]
+        [Display(Name = "Número de telefono")]
+        [Required(ErrorMessage = "El campo {0} es requerido.")]
         [StringLength(8, MinimumLength = 8, ErrorMessage = "Tamaño incorrecto del DPI")]
         public string Telefono { get; set; }
-        [Display(Name ="Fecha de su última consulta")]
+        //  [DisplayFormat(DataFormatString ="{0:dd/MM/yyyy}", ApplyFormatInEditMode =true)]
+        [Display(Name = "Fecha de su última consulta")]
         [DataType(DataType.Date)]
-        [Required(ErrorMessage ="El campo {0} es requerido.")]
+        [Required(ErrorMessage = "El campo {0} es requerido.")]
+        
         public DateTime? FDU { get; set; }
 
         [Display(Name ="Fecha de su próxima consulta (opcional)")]

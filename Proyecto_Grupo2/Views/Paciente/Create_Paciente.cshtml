@@ -36,6 +36,7 @@
                 <label asp-for="FDU" class="control-label"></label>
                 <input asp-for="FDU" class="form-control" />
                 <span asp-validation-for="FDU" class="text-danger"></span>
+               @*@ <asp:CalendarExtender ID="CalendarExtender2" Format="dd/MM/y"  runat="server" PopupButtonID="txtDia2" TargetControlID="txtDia2" OnClientDateSelectionChanged="checkDate"  ></asp:CalendarExtender>*@
             </div>
             <div class="form-group">
                 <label asp-for="FDP" class="control-label"></label>
@@ -43,7 +44,7 @@
                 <span asp-validation-for="FDP" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Descripcion" class="control-label"></label>
+               <label asp-for="Descripcion" class="control-label"></label>
                 <input asp-for="Descripcion" class="form-control" />
                 <span asp-validation-for="Descripcion" class="text-danger"></span>
             </div>
@@ -61,3 +62,20 @@
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
+@*@if (null != TempData["Fec"])
+{
+    <script type="text/javascript">
+       alert('@TempData["Fec"]');
+    </script>
+}*@
+
+@*<script type="text/javascript">
+     function checkDate(sender, args) {
+            if (sender._selectedDate < new Date()) {
+//                alert("¡Usted no puede seleccionar este día!");
+//                sender._selectedDate = new Date();
+//                // set the date back to the current date
+//                sender._textbox.set_Value("")
+            }
+        }
+</script>*@
