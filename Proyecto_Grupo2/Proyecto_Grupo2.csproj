@@ -12,4 +12,8 @@
     <ProjectReference Include="..\Clase\Clase.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Views\Home\Imagenes\" />
+  </ItemGroup>
+
 </Project>
