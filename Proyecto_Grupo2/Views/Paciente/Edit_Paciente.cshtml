@@ -4,12 +4,14 @@
     ViewData["Title"] = "Editar Paciente";
 }
 
-<h1>Editar Paciente</h1>
+<div class="titulo">
+    <br /><br /><br />
+    <h3 style="text-align:center;">Editar paciente</h3>
+    <hr style="width: 5%; text-align: center; height: 5px; background-color: #BCD8D9;">
+</div>
 
-<h4>Paciente</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
+<div class="row; col-auto p-5">
+    <div>
         <form asp-action="Edit_Paciente">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
@@ -49,16 +51,17 @@
                 <span asp-validation-for="Descripcion" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+                <input type="submit" value="Actualizar" class="btn btn-info" />
             </div>
         </form>
     </div>
 </div>
 
-<div>
-    <a asp-action="Index_Paciente">Back to List</a>
+<div style="text-align:right; margin-right:50px;">
+    <a asp-action="Index_Paciente" style="color: #246569;">Historial de pacientes</a>
 </div>
-
+<br />
+<br />
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }

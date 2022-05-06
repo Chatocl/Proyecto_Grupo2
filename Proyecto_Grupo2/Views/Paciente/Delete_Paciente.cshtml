@@ -4,12 +4,13 @@
     ViewData["Title"] = "Delete_Paciente";
 }
 
-<h1>Delete_Paciente</h1>
+<div class="titulo">
+    <br /><br /><br />
+    <h3 style="text-align:center;">Eliminar paciente</h3>
+    <hr style="width: 5%; text-align: center; height: 5px; background-color: #BCD8D9;">
+</div>
 
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>Paciente</h4>
-    <hr />
+<div style="align-content:center; margin-left:700px;">
     <dl class="row">
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Nombre)
@@ -56,7 +57,7 @@
     </dl>
     
     <form asp-action="Delete_Paciente">
-        <input type="submit" value="Delete" class="btn btn-danger" /> |
-        <a asp-action="Index_Paciente">Back to List</a>
+        &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<input type="submit" value="Eliminar" class="btn btn-danger" /> |
+        <a asp-action="Index_Paciente" style="color: #246569;">Historial de pacientes</a>
     </form>
 </div>
