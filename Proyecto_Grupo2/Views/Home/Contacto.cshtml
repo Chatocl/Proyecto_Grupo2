@@ -1,33 +1,40 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
-
-
-<body>
-    <section class="main">
-        
-        <img src="Face.jpg" alt""/>
-        <img src="C:\Users\Nilssen Chinchilla\Documents\Universidad\Estructura de datos 1\Proyecto_Grupo2\Proyecto_Grupo2\Views\imagen\Face.jpg" />
-
-        <a hrf="URL"> <img src="C:\Users\Nilssen Chinchilla\Documents\Universidad\Estructura de datos 1\Proyecto_Grupo2\Proyecto_Grupo2\Views\imagen\Face.jpg" /> </a>
-        <div>
-            <video poster="C:\Users\Nilssen Chinchilla\Documents\Universidad\Estructura de datos 1\Lab\LOGOESTRUCTURAS_Sonrisa_1010.png">
-                <source src="C:\Users\Nilssen Chinchilla\Documents\Universidad\Estructura de datos 1\Lab\VideoEstructuras.mp4" type="video/mp4">
-            </video>
+<div class="container contact-form" style="text-align:center; margin:30px;">
+    <div class="contact-image">
+        <img src="https://i.ibb.co/XzQRYm1/Mail-sent-rafiki.png" alt="Mail-sent-rafiki" border="0">
+    </div>
+    <form method="post">
+        <h3>
+            <br />
+            ¡Ponte en contacto con nosotros!
+        </h3>
+        <h5> Si tienes alguna pregunta o consulta, utiliza el siguiente formulario o, si lo prefieres, llámanos al 020 7638 0870. <br /><br /></h5>
+        <div class="row">
+            <div class="container" style="align-content:center;">
+                <div class="form-group">
+                    <input type="text" name="txtName" class="form-control" placeholder="Nombre" value="" />
+                </div>
+                <div class="form-group">
+                    <input type="text" name="txtEmail" class="form-control" placeholder="Email" value="" />
+                </div>
+                <div class="form-group">
+                    <input type="text" name="txtPhone" class="form-control" placeholder="Teléfono" value="" />
+                </div>
+                <div class="form-group">
+                    <div class="form-group">
+                        <textarea name="txtMsg" class="form-control" placeholder="Escribe tu mensaje" style="width: 100%; height: 150px;"></textarea>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div style="text-align:center;">
-
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/WkBLoPWW3VU?&autoplay=1"
-                    title="YouTube video player" frameborder="0" allow="accelerometer;
-                      autoplay; clipboard-write; encrypted-media;
-                      gyroscope; picture-in-picture" allowfullscreen>
-            </iframe>
-            <p style="text-align:center">Busquenos en nuestras redes sociales</p>
-            <p style="text-align:center">Telefono: 2426-2626</p>
+        <div class="form-group">
+            <a class="btn btn-info" href="#">Enviar mensaje</a>
         </div>
-    </section>
-</body>
-
+        <br /><br />
+    </form>
+</div>
 
 
 
