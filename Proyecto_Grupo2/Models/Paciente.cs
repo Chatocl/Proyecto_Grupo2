@@ -27,7 +27,7 @@ namespace Proyecto_Grupo2.Models
         [Required(ErrorMessage = "El campo {0} es requerido.")]
         [StringLength(8, MinimumLength = 8, ErrorMessage = "Tamaño incorrecto del DPI")]
         public string Telefono { get; set; }
-        //  [DisplayFormat(DataFormatString ="{0:dd/MM/yyyy}", ApplyFormatInEditMode =true)]
+        [DisplayFormat(ApplyFormatInEditMode =true, DataFormatString = "{0:dd/MM/yyyy}")]
         [Display(Name = "Fecha de su última consulta")]
         [DataType(DataType.Date)]
         [Required(ErrorMessage = "El campo {0} es requerido.")]

@@ -19,11 +19,16 @@ namespace Proyecto_Grupo2.Models.Datos
             }
         }
 
-      
+        // Arbol AVL y objeto Paciente para mostrar 
         public int bandera;
         public Paciente AuxP = new Paciente();
-        public List<Paciente> Aux = new List<Paciente>();
         public Clase.Arbol_AVL<Paciente> miAVL = new Clase.Arbol_AVL<Paciente>();
-       
+        // Listas usadas para el seguimiento de los Pacientes 
+        public List<Paciente> Aux = new List<Paciente>();
+        public List<Paciente> LimDental = new List<Paciente>();
+        public List<Paciente> Ortodoncia = new List<Paciente>();
+        public List<Paciente> Caries = new List<Paciente>();
+        public List <Paciente> TraComun  = new List<Paciente>();
+
     }
 }

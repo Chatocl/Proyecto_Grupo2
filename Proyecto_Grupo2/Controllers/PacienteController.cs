@@ -72,7 +72,6 @@ namespace Proyecto_Grupo2.Controllers
                     Descripcion = collection["descripcion"]
                 };
 
-                
                 aux = collection["FDP"];
                 if (aux!="")
                 {
@@ -201,6 +200,39 @@ namespace Proyecto_Grupo2.Controllers
                 TempData["Bus"] = "No se encontro el Paciente";
                 return View();
             }
+        }
+
+        public ActionResult Seguimiento_Paciente(string SLista) 
+        {
+            int Meses = 0;
+            Singleton.Instance.LimDental.Clear();
+            Singleton.Instance.Ortodoncia.Clear();
+            Singleton.Instance.Caries.Clear();
+            Singleton.Instance.TraComun.Clear();
+            Singleton.Instance.Aux = Singleton.Instance.miAVL.ObtenerLista();
+            for (int i = 0; i < Singleton.Instance.Aux.Count(); i++)
+            {
+                Meses = Math.Abs((DateTime.Now.Month - Singleton.Instance.Aux[i].FDU.Value.Month) + 12 * (DateTime.Now.Year - Singleton.Instance.Aux[i].FDU.Value.Year));
+
+                if (Singleton.Instance.Aux[i].Descripcion == "" && Meses >= 6)
+                {
+                    Singleton.Instance.LimDental.Add(Singleton.Instance.Aux[i]);
+                }
+                else if (Singleton.Instance.Aux[i].Descripcion.Contains("Ortodoncia") && Meses >= 2)
+                {
+                    Singleton.Instance.Ortodoncia.Add(Singleton.Instance.Aux[i]); 
+                }
+                else if (Singleton.Instance.Aux[i].Descripcion.Contains("Caries") && Meses >= 4)
+                {
+                    Singleton.Instance.Caries.Add(Singleton.Instance.Aux[i]);
+                }
+                else if (Singleton.Instance.Aux[i].Descripcion !="" && Meses>=6)
+                {
+                    Singleton.Instance.TraComun.Add(Singleton.Instance.Aux[i]);
+                }
+            }
+
+            return View();
         }
     }
 }
