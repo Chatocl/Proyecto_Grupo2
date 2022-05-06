@@ -79,10 +79,22 @@ namespace Proyecto_Grupo2.Controllers
                    
                     if (Convert.ToDateTime(collection["FDP"]) > Convert.ToDateTime(DateTime.Today)&& Convert.ToDateTime(collection["FDP"]) > Convert.ToDateTime(collection["FDU"]))
                     {
-                            
-                       // int a = (Add de la lista) La misma lista hace la validación de los 8 días
 
-                        NewPaciente.FDP = Convert.ToDateTime(collection["FDP"]);
+                        int a = Singleton.Instance.ListaPacientes.GetDay(Convert.ToDateTime(collection["FDP"]));
+                        if(a ==8)
+                        {
+                            AuxPac = NewPaciente;
+                            TempData["FEC"] = "Ingreso una fecha pasada para una proxima consulta";
+                            throw new Exception(null);
+                        }
+                        else
+                        {
+                            NewPaciente.FDP = Convert.ToDateTime(collection["FDP"]);
+                            Singleton.Instance.ListaPacientes.Add(Convert.ToDateTime(NewPaciente.FDP));
+                        }
+             
+
+                      
                     }
                     else
                     {
