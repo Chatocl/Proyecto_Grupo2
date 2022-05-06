@@ -75,10 +75,11 @@
                 </dl>
             </div>
 
-            @Html.ActionLink("Editar", "Edit", Model) |
-            <a asp-action="Index_Paciente" style="color: #246569;">Historial de pacientes</a>
+            <div style="text-align:right; margin-right:50px;">
+                @Html.ActionLink("Editar", "Edit_Paciente", Model)  | <a asp-action="Index_Paciente" style="color: #246569;">Historial de pacientes</a>
+            </div>
         </div>
-    </div>
+     </div>
 </div>
 
 @*@if (null != TempData["Bus"])

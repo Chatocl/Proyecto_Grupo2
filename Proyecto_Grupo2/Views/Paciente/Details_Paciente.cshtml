@@ -4,57 +4,65 @@
     ViewData["Title"] = "Details_Paciente";
 }
 
-<h1>Details_Paciente</h1>
-
-<div>
-    <h4>Paciente</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Nombre)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Nombre)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.DPI)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.DPI)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Edad)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Edad)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Telefono)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Telefono)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.FDU)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.FDU)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.FDP)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.FDP)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Descripcion)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Descripcion)
-        </dd>
-    </dl>
+<div class="titulo">
+    <br /><br /><br />
+    <h3 style="text-align:center;">Detalles de paciente</h3>
+    <hr style="width: 5%; text-align: center; height: 5px; background-color: #BCD8D9;">
 </div>
-<div>
-    @Html.ActionLink("Edit", "Edit_Paciente",Model) |
-    <a asp-action="Index_Paciente">Back to List</a>
+
+
+<div class="container-fluid h-100">
+    <div class="row w-100 align-items-center">
+        <div class="col text-center">
+            <div style="text-align:justify;">
+                <dl class="row">
+                    <dt class="col-sm-2">
+                        @Html.DisplayNameFor(model => model.Nombre)
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(model => model.Nombre)
+                    </dd>
+                    <dt class="col-sm-2">
+                        @Html.DisplayNameFor(model => model.DPI)
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(model => model.DPI)
+                    </dd>
+                    <dt class="col-sm-2">
+                        @Html.DisplayNameFor(model => model.Edad)
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(model => model.Edad)
+                    </dd>
+                    <dt class="col-sm-2">
+                        @Html.DisplayNameFor(model => model.Telefono)
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(model => model.Telefono)
+                    </dd>
+                    <dt class="col-sm-2">
+                        @Html.DisplayNameFor(model => model.FDU)
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(model => model.FDU)
+                    </dd>
+                    <dt class="col-sm-2">
+                        @Html.DisplayNameFor(model => model.FDP)
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(model => model.FDP)
+                    </dd>
+                    <dt class="col-sm-2">
+                        @Html.DisplayNameFor(model => model.Descripcion)
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(model => model.Descripcion)
+                    </dd>
+                </dl>
+            </div>
+            <div style="text-align:right; margin-right:50px;">
+                @Html.ActionLink("Editar", "Edit_Paciente", Model)  | <a asp-action="Index_Paciente" style="color: #246569;">Historial de pacientes</a>
+            </div>
+        </div>
+    </div>
 </div>
