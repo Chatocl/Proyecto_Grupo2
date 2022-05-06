@@ -25,7 +25,17 @@ namespace Proyecto_Grupo2.Controllers
             return View();
         }
 
-        public IActionResult Privacy()
+        public IActionResult About()
+        {
+            return View();
+        }
+
+        public IActionResult Contacto()
+        {
+            return View();
+        }
+
+        public IActionResult Tratamientos()
         {
             return View();
         }
