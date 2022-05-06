@@ -201,9 +201,10 @@ namespace Proyecto_Grupo2.Controllers
                 return View();
             }
         }
-
-        public ActionResult Seguimiento_Paciente(string SLista) 
+      
+        public ActionResult Seguimiento_Paciente(string Busqueda)
         {
+            string Slista = Busqueda;
             int Meses = 0;
             Singleton.Instance.LimDental.Clear();
             Singleton.Instance.Ortodoncia.Clear();
@@ -231,7 +232,22 @@ namespace Proyecto_Grupo2.Controllers
                     Singleton.Instance.TraComun.Add(Singleton.Instance.Aux[i]);
                 }
             }
-
+            if (Slista=="LD")
+            {
+                return View(Singleton.Instance.LimDental);  
+            }
+            else if (Slista=="OR")
+            {
+                return View(Singleton.Instance.Ortodoncia);
+            }
+            else if (Slista=="CA")
+            {
+                return View(Singleton.Instance.Caries);
+            }
+            else
+            {
+                 return View(Singleton.Instance.TraComun);
+            }
             return View();
         }
     }
