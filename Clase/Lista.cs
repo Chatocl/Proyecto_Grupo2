@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace Clase
 {
     
-    class Lista
+    public class Lista
     {
 
 
@@ -33,12 +33,11 @@ namespace Clase
           
         }
 
-        public void Add(int dia, DateTime fecha)
+        public void Add( DateTime fecha)
         {
             Nodo_Lista newNodo = new Nodo_Lista();
             Nodo_Lista aux = Head;
 
-            
             newNodo.FechaDA = fecha;
             newNodo.Next = null;
 
@@ -51,62 +50,33 @@ namespace Clase
             }
             else
             {
-                while (aux.Next != null)
-                {
-
-                    if(aux.FechaDA == fecha)
-                    {
-                        if(aux.numAtencion==8)
-                        {
-                            return ;
-                        }
-                        else
-                        {
-                            aux.numAtencion++;
-                        }
-                    }
+                while (aux.Next != null)       //Recorro la lista con el while
+                { 
                     aux = aux.Next;
-                }
-                
-                newNodo.numAtencion = dia;
-                aux.Next = newNodo;
-                return;
+                }   
+                    aux.Next = newNodo;
             }
-
-
 
         }
 
         
 
 
-        public int GetDay(DateTime dateTime)
+        public int GetDay(DateTime fecha)
         {
             Nodo_Lista newNodo = new Nodo_Lista();
             Nodo_Lista aux = Head;
-
-            while (aux != null)
+            int cont = 0;
+            while (aux != null)       //Recorro la lista con el while
             {
-                if (dateTime == aux.FechaDA)
+                if (aux.FechaDA == fecha)  //Si la fecha del nodo es igual a la fecha de interés
                 {
-                    if(aux.numAtencion<8)
-                    {
-                        return aux.numAtencion;
-                    }
-                    else
-                    {
-                        return -1;
-                    }
-                    //break;
+                    cont++;             //El contador se sumará en 1
                 }
-                else
-                {
 
-                    aux = aux.Next;
-                   
-                }
+                aux = aux.Next;
             }
-            return -1 ;
+            return cont ; //Retorno cont, si cont es mayor a 3, se hará la excepción 
         }
 
 
