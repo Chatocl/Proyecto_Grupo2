@@ -58,12 +58,28 @@
 <div style="text-align:right; margin-right:50px;">
     <a asp-action="Index_Paciente" style="color: #246569;">Historial de pacientes</a>
 </div>
-<br /><br />
+<br />
+<br />
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
-@if (null != TempData["Fec"])
+
+@if (null != TempData["VOP"])//Validacion de 8 personas por día
+{
+    <script type="text/javascript">
+       alert('@TempData["VOP"]');
+    </script>
+}
+
+@if (null != TempData["DRP"])//Mensaje de validacion de dpi repetido
+{
+    <script type="text/javascript">
+       alert('@TempData["DRP"]');
+    </script>
+}
+
+@if (null != TempData["Fec"])//Mensaje de validacion de fecha pasada a la actual
 {
     <script type="text/javascript">
        alert('@TempData["Fec"]');

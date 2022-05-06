@@ -60,17 +60,32 @@ namespace Proyecto_Grupo2.Controllers
             Paciente AuxPac = new Paciente();
             try
             {
-                string aux="";
+                string aux = "";
                 var NewPaciente = new Models.Paciente
                 {
 
                     Nombre = collection["nombre"],
-                    DPI = collection["dpi"],
+
                     Edad = collection["edad"],
                     FDU = Convert.ToDateTime(collection["FDU"]),
                     Telefono = collection["telefono"],
                     Descripcion = collection["descripcion"]
                 };
+                Singleton.Instance.ListaPacientes.AddDPI(collection["dpi"]);
+
+                int b = Singleton.Instance.ListaPacientes.GetDPI(collection["dpi"]);
+
+                if(b==1)
+                {
+                    NewPaciente.DPI = collection["dpi"];
+                }
+                else
+                {
+                    AuxPac = NewPaciente;
+                    TempData["DRP"] = "EL dpi que desea ingresar, ya se encuentra registrado.";
+                    throw new Exception(null);
+                }
+                //DPI = collection["dpi"],
 
                 aux = collection["FDP"];
                 if (aux!="")
@@ -83,7 +98,7 @@ namespace Proyecto_Grupo2.Controllers
                         if(a ==8)
                         {
                             AuxPac = NewPaciente;
-                            TempData["FEC"] = "Ingreso una fecha pasada para una proxima consulta";
+                            TempData["VOP"] = "Unicamente se pueden atensder a 8 personas por día.";
                             throw new Exception(null);
                         }
                         else
