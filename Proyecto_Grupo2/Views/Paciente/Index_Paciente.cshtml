@@ -4,68 +4,78 @@
     ViewData["Title"] = "Index_Paciente";
 }
 
-<h1>Index Pacientes</h1>
+<div class="titulo">
+    <br /><br /><br />
+    <h3 style="text-align:center;">Historial de pacientes</h3>
+    <hr style="width: 5%; text-align: center; height: 5px; background-color: #BCD8D9;">
+</div>
 
-<p>
-    <a asp-action="Create_Paciente">Ingresar Paciente</a>
+
+<p style="text-align:center;color:dimgrey;">
+    <a asp-action="Create_Paciente">Nuevo paciente</a>
 </p>
-<table class="table">
-    <thead style="background-color: #293241 ">
-        <tr>
-            <th style="color:aliceblue">
-                @Html.DisplayNameFor(model => model.Nombre)
-            </th>
-            <th style="color:aliceblue">
-                @Html.DisplayNameFor(model => model.DPI)
-            </th>
-            <th style="color:aliceblue">
-                @Html.DisplayNameFor(model => model.Edad)
-            </th>
-            <th style="color:aliceblue">
-                @Html.DisplayNameFor(model => model.Telefono)
-            </th>
-            <th style="color:aliceblue">
-                @Html.DisplayNameFor(model => model.FDU)
-            </th>
-            <th style="color:aliceblue">
-                @Html.DisplayNameFor(model => model.FDP)
-            </th>
-            <th style="color:aliceblue"> 
-                @Html.DisplayNameFor(model => model.Descripcion)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Nombre)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DPI)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Edad)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Telefono)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FDU)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FDP)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Descripcion)
-            </td>
-            <td>
-                @Html.ActionLink("Editar", "Edit_Paciente", item ) |
-                @Html.ActionLink("Detalles", "Details_Paciente",item) |
-                @Html.ActionLink("Eliminar", "Delete_Paciente",item)
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+
+<div class="container-fluid">
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th style="color: aliceblue; vertical-align: middle;">
+                        @Html.DisplayNameFor(model => model.Nombre)
+                    </th>
+                    <th style="color: aliceblue; vertical-align: middle;">
+                        @Html.DisplayNameFor(model => model.DPI)
+                    </th>
+                    <th style="color: aliceblue; vertical-align: middle;">
+                        @Html.DisplayNameFor(model => model.Edad)
+                    </th>
+                    <th style="color: aliceblue; vertical-align: middle;">
+                        @Html.DisplayNameFor(model => model.Telefono)
+                    </th>
+                    <th style="color: aliceblue; vertical-align: middle;">
+                        @Html.DisplayNameFor(model => model.FDU)
+                    </th>
+                    <th style="color: aliceblue; vertical-align: middle;">
+                        @Html.DisplayNameFor(model => model.FDP)
+                    </th>
+                    <th style="color: aliceblue; vertical-align: middle;">
+                        @Html.DisplayNameFor(model => model.Descripcion)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td style="vertical-align: middle">
+                            @Html.DisplayFor(modelItem => item.Nombre)
+                        </td>
+                        <td  style="vertical-align: middle">
+                            @Html.DisplayFor(modelItem => item.DPI)
+                        </td>
+                        <td  style="vertical-align: middle">
+                            @Html.DisplayFor(modelItem => item.Edad)
+                        </td>
+                        <td  style="vertical-align: middle">
+                            @Html.DisplayFor(modelItem => item.Telefono)
+                        </td>
+                        <td  style="vertical-align: middle">
+                            @Html.DisplayFor(modelItem => item.FDU)
+                        </td>
+                        <td  style="vertical-align: middle">
+                            @Html.DisplayFor(modelItem => item.FDP)
+                        </td>
+                        <td  style="vertical-align: middle">
+                            @Html.DisplayFor(modelItem => item.Descripcion)
+                        </td>
+                        <td style="text-align: center;">
+                            @Html.ActionLink("Editar", "Edit_Paciente", item) | @Html.ActionLink("Detalles", "Details_Paciente", item) 
+                            @Html.ActionLink("Eliminar", "Delete_Paciente", item)
+
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+</div>
+
