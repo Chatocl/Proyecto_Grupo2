@@ -3,82 +3,84 @@
     ViewData["Title"] = "Seguimiento_Paciente";
 }
 
-<h1>Seguimiento_Paciente</h1>
-  
-<div class="form-inline">
-     <form asp-action="Seguimiento_Paciente" method="post">
-       <select name="Busqueda" type="search"  class="form-control">
-         <option value="LD">Seguimiento de Limpieza Dental</option>
-         <option value="OR">Seguimiento de Ortodoncia</option>
-         <option value="CA">Seguimiento de Caries</option>
-         <option value="DC">Seguimiento de Diagnostico Comun</option>
-      </select>
-        <button type="submit" class="btn btn-outline-success">Buscar</button>
-     </form>
+<div class="titulo">
+    <br /><br /><br />
+    <h3 style="text-align:center;">Seguimiento de pacientes</h3>
+    <hr style="width: 5%; text-align: center; height: 5px; background-color: #BCD8D9;">
 </div>
-
-
-     
-
-
-
-<table class="table">
-    <thead style="background-color: #293241 ">
-        <tr>
-            <th style="color:aliceblue">
-                @Html.DisplayNameFor(model => model.Nombre)
-            </th>
-            <th style="color:aliceblue">
-                @Html.DisplayNameFor(model => model.DPI)
-            </th>
-            <th style="color:aliceblue">
-                @Html.DisplayNameFor(model => model.Edad)
-            </th>
-            <th style="color:aliceblue">
-                @Html.DisplayNameFor(model => model.Telefono)
-            </th>
-            <th style="color:aliceblue">
-                @Html.DisplayNameFor(model => model.FDU)
-            </th>
-            <th style="color:aliceblue">
-                @Html.DisplayNameFor(model => model.FDP)
-            </th>
-            <th style="color:aliceblue"> 
-                @Html.DisplayNameFor(model => model.Descripcion)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Nombre)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DPI)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Edad)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Telefono)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FDU)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FDP)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Descripcion)
-            </td>
-            <td>
-                @Html.ActionLink("Editar", "Edit_Paciente", item ) |
-                @Html.ActionLink("Detalles", "Details_Paciente",item) |
-                @Html.ActionLink("Eliminar", "Delete_Paciente",item)
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+  
+<div class="container-fluid">
+    <div class="form-inline">
+        <form asp-action="Seguimiento_Paciente" method="post">
+            <select name="Busqueda" type="search" class="form-control">
+                <option value="LD">Seguimiento de Limpieza Dental</option>
+                <option value="OR">Seguimiento de Ortodoncia</option>
+                <option value="CA">Seguimiento de Caries</option>
+                <option value="DC">Seguimiento de Diagnóstico Común</option>
+            </select>
+            <button type="submit" class="btn btn-outline-success">Buscar</button>
+        </form>
+    </div>
+    <br /><br />
+    <table class="table">
+        <thead class="thead-light">
+            <tr>
+                <th style="color: #232C33; vertical-align: middle; ">
+                    @Html.DisplayNameFor(model => model.Nombre)
+                </th>
+                <th style="color: #232C33; vertical-align: middle; ">
+                    @Html.DisplayNameFor(model => model.DPI)
+                </th>
+                <th style="color: #232C33; vertical-align: middle; ">
+                    @Html.DisplayNameFor(model => model.Edad)
+                </th>
+                <th style="color: #232C33; vertical-align: middle; ">
+                    @Html.DisplayNameFor(model => model.Telefono)
+                </th>
+                <th style="color: #232C33; vertical-align: middle; ">
+                    @Html.DisplayNameFor(model => model.FDU)
+                </th>
+                <th style="color: #232C33; vertical-align: middle; ">
+                    @Html.DisplayNameFor(model => model.FDP)
+                </th>
+                <th style="color: #232C33; vertical-align: middle; ">
+                    @Html.DisplayNameFor(model => model.Descripcion)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td style="vertical-align: middle">
+                        @Html.DisplayFor(modelItem => item.Nombre)
+                    </td>
+                    <td style="vertical-align: middle">
+                        @Html.DisplayFor(modelItem => item.DPI)
+                    </td>
+                    <td style="vertical-align: middle">
+                        @Html.DisplayFor(modelItem => item.Edad)
+                    </td>
+                    <td style="vertical-align: middle">
+                        @Html.DisplayFor(modelItem => item.Telefono)
+                    </td>
+                    <td style="vertical-align: middle">
+                        @Html.DisplayFor(modelItem => item.FDU)
+                    </td>
+                    <td style="vertical-align: middle">
+                        @Html.DisplayFor(modelItem => item.FDP)
+                    </td>
+                    <td style="vertical-align: middle">
+                        @Html.DisplayFor(modelItem => item.Descripcion)
+                    </td>
+                    <td style="text-align:center">
+                        @Html.ActionLink("Editar", "Edit_Paciente", item) |
+                        @Html.ActionLink("Detalles", "Details_Paciente", item)
+                        @Html.ActionLink("Eliminar", "Delete_Paciente", item)
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
