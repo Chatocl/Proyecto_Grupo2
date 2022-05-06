@@ -24,6 +24,7 @@ namespace Proyecto_Grupo2.Models.Datos
         public Paciente AuxP = new Paciente();
         public Clase.Arbol_AVL<Paciente> miAVL = new Clase.Arbol_AVL<Paciente>();
         // Listas usadas para el seguimiento de los Pacientes 
+        public Clase.Lista ListaPacientes = new Clase.Lista();
         public List<Paciente> Aux = new List<Paciente>();
         public List<Paciente> LimDental = new List<Paciente>();
         public List<Paciente> Ortodoncia = new List<Paciente>();
