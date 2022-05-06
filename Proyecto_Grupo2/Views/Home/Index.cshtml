@@ -2,6 +2,53 @@
     ViewData["Title"] = "Home Page";
 }
 
-<video autoplay muted loop playsinline style="width: 100%; height: auto; filter: brightness(30%);">
-    <source src="https://www.citydental.co.uk/wp-content/themes/city-dental/video/reception/reception-walk-through-video.mp4" type="video/mp4">Your browser does not support the video tag. I suggest you upgrade your browser.
-</video> 
+<div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <video autoplay muted loop playsinline style="width: 100%; height:auto; filter: brightness(30%);" src="https://www.citydental.co.uk/wp-content/themes/city-dental/video/reception/reception-walk-through-video.mp4" class="d-block w-100" alt="..."></video>
+            <div class="carousel-caption d-none d-md-block">
+                <div class="align-content-center" style="align-content:center;top:200px;">
+                    <img src="https://i.ibb.co/kDbgk7D/blue-dental-nurse-logo-500-250-px-500-250-px.png" alt="blue-dental-nurse-logo-500-250-px-500-250-px" border="0">
+                    <p><a class="btn btn-info" asp-controller="Paciente" asp-action="Create_Paciente">¡Haz tu cita hoy!</a>&nbsp;&nbsp;&nbsp;&nbsp;<a class="btn btn-info" asp-controller="Home" asp-action="Contacto">Contáctanos</a></p>
+                    <h5>Transformamos sonrisas, transformamos vidas.</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Marketing messaging and featurettes
+    ================================================== -->
+    <!-- Wrap the rest of the page in another container to center all the content. -->
+
+    <div style="background-color: #EBEDEF">
+        <br /><br />
+        <!-- Three columns of text below the carousel -->
+        <div class="row" style="margin:30px; text-align:center;">
+            <div class="col-lg-4">
+                <img width="140" height="140" src="https://cdn.icon-icons.com/icons2/2063/PNG/512/add_new_dental_dentist_healthcare_icon_124694.png" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false" />
+                <h2>Tratamientos Básicos</h2>
+                <p>Proporcionamos el más alto nivel de tratamientos dentales.</p>
+
+            </div><!-- /.col-lg-4 -->
+            <div class="col-lg-4">
+                <img width="140" height="140" src="https://cdn.icon-icons.com/icons2/2063/PNG/512/crown_dental_dentist_healthcare_medical_icon_124663.png" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false" />
+                <h2>Estética</h2>
+                <p>Para una sonrisa más brillante y segura.</p>
+
+            </div><!-- /.col-lg-4 -->
+            <div class="col-lg-4">
+                <img width="140" height="140" src="https://cdn.icon-icons.com/icons2/2063/PNG/512/schedule_dentist_dental_healthcare_medical_icon_124619.png" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false" />
+                <h2>Especiaidades</h2>
+                <p>Contamos con tratamientos novedosos.</p>
+
+            </div><!-- /.col-lg-4 -->
+        </div><!-- /.row -->
+        <br /><br />
+    </div>
+
+    <!--Mapa Google-->
+    <div class="container-fluid">
+        <div class="map-responsive">
+            <iframe src="https://www.google.com/maps/embed/v1/place?key=AIzaSyA0s1a7phLN0iaD6-UE7m4qP-z21pH0eSc&q=Eiffel+Tower+Paris+France" style="width:100%;height:100%;" frameborder="0" style="border:0" allowfullscreen></iframe>
+        </div>
+    </div>
