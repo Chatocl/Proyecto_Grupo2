@@ -14,8 +14,12 @@ using System.IO;
 
 namespace Proyecto_Grupo2.Controllers
 {
+        
     public class PacienteController : Controller
     {
+        //Constructor
+
+          
         private IHostingEnvironment Environment;
         // GET: AVLController
         public PacienteController(IHostingEnvironment _everioment)
@@ -52,6 +56,8 @@ namespace Proyecto_Grupo2.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create_Paciente(IFormCollection collection)
         {
+             
+            Paciente AuxPac = new Paciente();
             try
             {
                 string aux="";
@@ -61,24 +67,34 @@ namespace Proyecto_Grupo2.Controllers
                     Nombre = collection["nombre"],
                     DPI = collection["dpi"],
                     Edad = collection["edad"],
-                    Telefono = collection["telefono"],
                     FDU = Convert.ToDateTime(collection["FDU"]),
+                    Telefono = collection["telefono"],
                     Descripcion = collection["descripcion"]
                 };
+
+                
                 aux = collection["FDP"];
                 if (aux!="")
                 {
-                    NewPaciente.FDP = Convert.ToDateTime(collection["FDP"]);
+                   
+                    if (Convert.ToDateTime(collection["FDP"]) > Convert.ToDateTime(DateTime.Today)&& Convert.ToDateTime(collection["FDP"]) > Convert.ToDateTime(collection["FDU"]))
+                    {
+                            
+                       // int a = (Add de la lista) La misma lista hace la validación de los 8 días
+
+                        NewPaciente.FDP = Convert.ToDateTime(collection["FDP"]);
+                    }
+                    else
+                    {
+                        AuxPac = NewPaciente;
+                        TempData["FEC"] = "Ingreso una fecha pasada para una proxima consulta";
+                        throw new Exception(null);
+                    }
                 }
                 else
                 {
                     NewPaciente.FDP = null;
                 }
-
-                //if(Convert.ToDateTime(collection["FDU"]) > Convert.ToDateTime(DateTime.Today))
-                //{
-                //    NewPaciente.FDU = Convert.ToDateTime(collection["FDU"]);
-                //}
 
                 Singleton.Instance.miAVL.Add(NewPaciente);
                 Singleton.Instance.bandera = 0;
@@ -86,7 +102,7 @@ namespace Proyecto_Grupo2.Controllers
             }
             catch
             {
-                return View();
+                return View(AuxPac);
             }
         }
 
