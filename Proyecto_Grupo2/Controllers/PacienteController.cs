@@ -59,10 +59,21 @@ namespace Proyecto_Grupo2.Controllers
                     Nombre = collection["nombre"],
                     DPI = collection["dpi"],
                     Edad = collection["edad"],
-                    FDU = Convert.ToDateTime(collection["FDU"]),
                     Telefono = collection["telefono"],
                     Descripcion = collection["descripcion"]
                 };
+
+                if (Convert.ToDateTime(collection["FDU"]) < Convert.ToDateTime(DateTime.Today))
+                {
+                    NewPaciente.FDU = Convert.ToDateTime(collection["FDU"]);
+                }
+                else
+                {
+                    AuxPac = NewPaciente;
+                    TempData["FEC"] = "Ingreso una fecha incorrecta en la consulta pasada";
+                    throw new Exception(null);
+                }
+
 
                 aux = collection["FDP"];
                 if (aux!="")
@@ -129,8 +140,6 @@ namespace Proyecto_Grupo2.Controllers
             Paciente viewPaciente = Singleton.Instance.miAVL.Find(item);
             Paciente AuxPac = new Paciente();
             Singleton.Instance.AuxP = viewPaciente;
-
-
             return View();
         }
 
