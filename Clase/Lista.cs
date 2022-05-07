@@ -16,11 +16,10 @@ namespace Clase
         {
             
             public int numAtencion=0; //El numero de personas atendidas en un día
-           public DateTime FechaDA;//Fecha de antencion 
+            public DateTime FechaDA;//Fecha de antencion 
             public string DNI; //variable para verificar dpi
             public Nodo_Lista Next;
            
-
         }
 
 

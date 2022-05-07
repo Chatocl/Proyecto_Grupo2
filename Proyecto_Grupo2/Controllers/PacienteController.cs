@@ -28,15 +28,7 @@ namespace Proyecto_Grupo2.Controllers
         }
         public ActionResult Index_Paciente()
         {
-            if (Singleton.Instance.bandera == 1)
-            {
-                Singleton.Instance.bandera = 0;
-                return View(Singleton.Instance.Aux);
-            }
-            else
-            {
-                return View(Singleton.Instance.miAVL.ObtenerLista());
-            }
+           return View(Singleton.Instance.miAVL.ObtenerLista());
         }
         // GET: AVLController/Details/5
         public ActionResult Details_Paciente(Paciente id)
@@ -65,27 +57,12 @@ namespace Proyecto_Grupo2.Controllers
                 {
 
                     Nombre = collection["nombre"],
-
+                    DPI = collection["dpi"],
                     Edad = collection["edad"],
                     FDU = Convert.ToDateTime(collection["FDU"]),
                     Telefono = collection["telefono"],
                     Descripcion = collection["descripcion"]
                 };
-                Singleton.Instance.ListaPacientes.AddDPI(collection["dpi"]);
-
-                int b = Singleton.Instance.ListaPacientes.GetDPI(collection["dpi"]);
-
-                if(b==1)
-                {
-                    NewPaciente.DPI = collection["dpi"];
-                }
-                else
-                {
-                    AuxPac = NewPaciente;
-                    TempData["DRP"] = "EL dpi que desea ingresar, ya se encuentra registrado.";
-                    throw new Exception(null);
-                }
-                //DPI = collection["dpi"],
 
                 aux = collection["FDP"];
                 if (aux!="")
@@ -98,7 +75,7 @@ namespace Proyecto_Grupo2.Controllers
                         if(a ==8)
                         {
                             AuxPac = NewPaciente;
-                            TempData["VOP"] = "Unicamente se pueden atensder a 8 personas por día.";
+                            TempData["VOP"] = "Unicamente se pueden atender a 8 personas por día.";
                             throw new Exception(null);
                         }
                         else
@@ -106,9 +83,7 @@ namespace Proyecto_Grupo2.Controllers
                             NewPaciente.FDP = Convert.ToDateTime(collection["FDP"]);
                             Singleton.Instance.ListaPacientes.Add(Convert.ToDateTime(NewPaciente.FDP));
                         }
-             
-
-                      
+           
                     }
                     else
                     {
@@ -120,6 +95,22 @@ namespace Proyecto_Grupo2.Controllers
                 else
                 {
                     NewPaciente.FDP = null;
+                }
+
+
+                Singleton.Instance.ListaPacientes.AddDPI(collection["dpi"]);
+
+                int b = Singleton.Instance.ListaPacientes.GetDPI(collection["dpi"]);
+
+                if (b == 1)
+                {
+                    NewPaciente.DPI = collection["dpi"];
+                }
+                else
+                {
+                    AuxPac = NewPaciente;
+                    TempData["DRP"] = "EL dpi que desea ingresar, ya se encuentra registrado.";
+                    throw new Exception(null);
                 }
 
                 Singleton.Instance.miAVL.Add(NewPaciente);
@@ -134,10 +125,13 @@ namespace Proyecto_Grupo2.Controllers
 
         // GET: AVLController/Edit/5
         public ActionResult Edit_Paciente(Paciente item)
-        {
+        {   
             Paciente viewPaciente = Singleton.Instance.miAVL.Find(item);
+            Paciente AuxPac = new Paciente();
             Singleton.Instance.AuxP = viewPaciente;
-            return View(viewPaciente);
+
+
+            return View();
         }
 
         // POST: AVLController/Edit/5
@@ -145,30 +139,59 @@ namespace Proyecto_Grupo2.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit_Paciente(Paciente id, IFormCollection collection)
         {
+            Paciente AuxPac = new Paciente();
             try
             {
-                string aux = "";
-                Singleton.Instance.miAVL.Find(Singleton.Instance.AuxP).Nombre = collection["nombre"];
-                Singleton.Instance.miAVL.Find(Singleton.Instance.AuxP).DPI = collection["dpi"];
-                Singleton.Instance.miAVL.Find(Singleton.Instance.AuxP).Edad = collection["edad"];
-                Singleton.Instance.miAVL.Find(Singleton.Instance.AuxP).Telefono = collection["telefono"];
-                Singleton.Instance.miAVL.Find(Singleton.Instance.AuxP).FDU = Convert.ToDateTime(collection["FDU"]);
-                Singleton.Instance.miAVL.Find(Singleton.Instance.AuxP).Descripcion = collection["descripcion"];
-               
-                aux = Convert.ToString(Convert.ToDateTime(collection["FDP"]));
+                var NewPaciente = new Models.Paciente
+                {
+                    Nombre = collection["nombre"],
+                    DPI = collection["dpi"],
+                    Edad = collection["edad"],
+                    FDU = Convert.ToDateTime(collection["FDU"]),
+                    Telefono = collection["telefono"],
+                    Descripcion = collection["descripcion"]
+                };
+                string aux = collection["F"];
+                Singleton.Instance.miAVL.Find(Singleton.Instance.AuxP).Nombre = NewPaciente.Nombre;
+                Singleton.Instance.miAVL.Find(Singleton.Instance.AuxP).DPI = NewPaciente.DPI;
+                Singleton.Instance.miAVL.Find(Singleton.Instance.AuxP).Edad = NewPaciente.Edad;
+                Singleton.Instance.miAVL.Find(Singleton.Instance.AuxP).Telefono = NewPaciente.Telefono;
+                Singleton.Instance.miAVL.Find(Singleton.Instance.AuxP).FDU = Convert.ToDateTime(NewPaciente.FDU);
+                Singleton.Instance.miAVL.Find(Singleton.Instance.AuxP).Descripcion = NewPaciente.Descripcion;
                 if (aux != "")
                 {
-                    Singleton.Instance.miAVL.Find(Singleton.Instance.AuxP).FDP = Convert.ToDateTime(collection["FDP"]);
+
+                    if (Convert.ToDateTime(collection["FDP"]) > Convert.ToDateTime(DateTime.Today) && Convert.ToDateTime(collection["FDP"]) > Convert.ToDateTime(collection["FDU"]))
+                    {
+                        int a = Singleton.Instance.ListaPacientes.GetDay(Convert.ToDateTime(collection["FDP"]));
+                        if (a == 8)
+                        {
+                            AuxPac = NewPaciente;
+                            TempData["VOP"] = "Unicamente se pueden atender a 8 personas por día.";
+                            throw new Exception(null);
+                        }
+                        else
+                        {
+                            Singleton.Instance.miAVL.Find(Singleton.Instance.AuxP).FDP = Convert.ToDateTime(NewPaciente.FDP);
+                        }
+                    }
+                    else
+                    {
+                        AuxPac = NewPaciente;
+                        TempData["FEC"] = "Ingreso una fecha pasada para una proxima consulta";
+                        throw new Exception(null);
+                    }
                 }
                 else
                 {
                     Singleton.Instance.miAVL.Find(Singleton.Instance.AuxP).FDP = null;
                 }
+
                 return RedirectToAction(nameof(Index_Paciente));
             }
             catch
             {
-                return View();
+                return View(AuxPac);
             }
         }
 
@@ -246,13 +269,19 @@ namespace Proyecto_Grupo2.Controllers
                 {
                     Singleton.Instance.LimDental.Add(Singleton.Instance.Aux[i]);
                 }
-                else if (Singleton.Instance.Aux[i].Descripcion.Contains("Ortodoncia") && Meses >= 2)
+                else if (Singleton.Instance.Aux[i].Descripcion.Contains("Ortodoncia") || Singleton.Instance.Aux[i].Descripcion.Contains("ortodoncia"))
                 {
-                    Singleton.Instance.Ortodoncia.Add(Singleton.Instance.Aux[i]); 
+                  if (Meses >= 2)
+                  {
+                    Singleton.Instance.Ortodoncia.Add(Singleton.Instance.Aux[i]);
+                  }   
                 }
-                else if (Singleton.Instance.Aux[i].Descripcion.Contains("Caries") && Meses >= 4)
+                else if (Singleton.Instance.Aux[i].Descripcion.Contains("Caries") ||Singleton.Instance.Aux[i].Descripcion.Contains("Caries") )
                 {
-                    Singleton.Instance.Caries.Add(Singleton.Instance.Aux[i]);
+                    if (Meses >= 4)
+                    {
+                        Singleton.Instance.Caries.Add(Singleton.Instance.Aux[i]);
+                    }
                 }
                 else if (Singleton.Instance.Aux[i].Descripcion !="" && Meses>=6)
                 {
