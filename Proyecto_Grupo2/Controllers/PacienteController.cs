@@ -195,30 +195,6 @@ namespace Proyecto_Grupo2.Controllers
             }
         }
 
-        // GET: AVLController/Delete/5
-        public ActionResult Delete_Paciente(Paciente id)
-        {
-            Paciente viewPaciente = Singleton.Instance.miAVL.Find(id);
-            Singleton.Instance.AuxP = viewPaciente;
-            return View(viewPaciente);
-        }
-
-        // POST: AVLController/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete_Paciente(Paciente id, IFormCollection collection)
-        {
-            try
-            {
-                Singleton.Instance.miAVL.Remove(Singleton.Instance.AuxP);
-                return RedirectToAction(nameof(Index_Paciente));
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
         public ActionResult Busqueda_Paciente(string Busqueda)
         {
             try
