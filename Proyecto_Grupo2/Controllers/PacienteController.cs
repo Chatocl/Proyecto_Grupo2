@@ -161,6 +161,7 @@ namespace Proyecto_Grupo2.Controllers
                     Telefono = collection["telefono"],
                     Descripcion = collection["descripcion"]
                 };
+               
                 string aux = collection["F"];
                 Singleton.Instance.miAVL.Find(Singleton.Instance.AuxP).Nombre = NewPaciente.Nombre;
                 Singleton.Instance.miAVL.Find(Singleton.Instance.AuxP).DPI = NewPaciente.DPI;
@@ -256,14 +257,14 @@ namespace Proyecto_Grupo2.Controllers
                 {
                     Singleton.Instance.LimDental.Add(Singleton.Instance.Aux[i]);
                 }
-                else if (Singleton.Instance.Aux[i].Descripcion.Contains("Ortodoncia") || Singleton.Instance.Aux[i].Descripcion.Contains("ortodoncia"))
+                else if (Singleton.Instance.Aux[i].Descripcion.Contains("Ortodoncia") || Singleton.Instance.Aux[i].Descripcion.Contains("ortodoncia") || Singleton.Instance.Aux[i].Descripcion.Contains("ORTODONCIA"))
                 {
                   if (Meses >= 2)
                   {
                     Singleton.Instance.Ortodoncia.Add(Singleton.Instance.Aux[i]);
                   }   
                 }
-                else if (Singleton.Instance.Aux[i].Descripcion.Contains("Caries") ||Singleton.Instance.Aux[i].Descripcion.Contains("Caries") )
+                else if (Singleton.Instance.Aux[i].Descripcion.Contains("Caries") ||Singleton.Instance.Aux[i].Descripcion.Contains("Caries") || Singleton.Instance.Aux[i].Descripcion.Contains("CARIES"))
                 {
                     if (Meses >= 4)
                     {
