@@ -157,6 +157,7 @@ namespace Proyecto_Grupo2.Controllers
                     DPI = collection["dpi"],
                     Edad = collection["edad"],
                     FDU = Convert.ToDateTime(collection["FDU"]),
+                    FDP = Convert.ToDateTime(collection["FDP"]),
                     Telefono = collection["telefono"],
                     Descripcion = collection["descripcion"]
                 };
@@ -166,6 +167,7 @@ namespace Proyecto_Grupo2.Controllers
                 Singleton.Instance.miAVL.Find(Singleton.Instance.AuxP).Edad = NewPaciente.Edad;
                 Singleton.Instance.miAVL.Find(Singleton.Instance.AuxP).Telefono = NewPaciente.Telefono;
                 Singleton.Instance.miAVL.Find(Singleton.Instance.AuxP).FDU = Convert.ToDateTime(NewPaciente.FDU);
+                Singleton.Instance.miAVL.Find(Singleton.Instance.AuxP).FDP = Convert.ToDateTime(NewPaciente.FDP);
                 Singleton.Instance.miAVL.Find(Singleton.Instance.AuxP).Descripcion = NewPaciente.Descripcion;
                 if (aux != "")
                 {
